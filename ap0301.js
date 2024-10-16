@@ -27,8 +27,8 @@ function init() {
 
   // ロボットの作成
   const robots = new THREE.Group;
-  for(let x =-5;x<5;x++){
-    for(let z =-5;z<5;z++){
+  for(let x =-4;x<5;x++){
+    for(let z =-4;z<5;z++){
        let robot; //変数宣言
        if(Math.random()<0.25){
          robot= makeCBRobot(); 
@@ -71,9 +71,9 @@ function init() {
     camera.updateProjectionMatrix();
     // ロボットの動き
     robots.children.forEach((robot)=> {
-    robot.rotation.y
-    =(robot.rotation.y + 0.01) % (2*Math.PI);
-    robot.position.y=Math.sin(robot.rotation.y);
+      robot.rotation.y
+        =(robot.rotation.y + 0.01) % (2*Math.PI);
+      robot.position.y=Math.sin(robot.rotation.y);
     });
     renderer.render(scene, camera);
     requestAnimationFrame(render);
